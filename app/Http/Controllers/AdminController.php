@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-         $users = User::withTrashed()->get();
+         $users = User::withTrashed()->paginate(5);
          return view('admin/get_users', compact('users'));
       
     }

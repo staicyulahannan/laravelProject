@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserAuhController;
 
 
 /*
@@ -24,3 +25,12 @@ Route::post('admin/update-user', [\App\Http\Controllers\AdminController::class, 
 Route::get('admin/delete-user/{id}', [\App\Http\Controllers\AdminController::class, 'delete'])->name('delete.user');
 Route::get('admin/activate-user/{id}', [\App\Http\Controllers\AdminController::class, 'activate'])->name('activate.user');
 Route::get('admin/force-delete-user/{id}', [\App\Http\Controllers\AdminController::class, 'forceDelete'])->name('force.delete.user');
+
+Route::get('/login', [UserAuhController::class, 'login'])->name('login');
+Route::get('/register', [UserAuhController::class, 'register'])->name('register');
+
+Route::post('/register-user', [UserAuhController::class, 'registerUser'])->name('register.user');
+Route::post('/login-user', [UserAuhController::class, 'loginUser'])->name('login.user');
+
+Route::get('/dashboard', [UserAuhController::class, 'dashboard'])->name('dashboard');
+Route::get('/logout', [UserAuhController::class, 'logout'])->name('logout');
